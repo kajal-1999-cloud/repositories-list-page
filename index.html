@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Repository List Page </title>
+
+    <link rel="stylesheet" href="styles.css">
+     
+</head>
+<body>
+    <div>
+        <div class="details">
+             <div class="git-profile">
+                <div class="profile-photo">
+                <img src="/assets/61248995.png" alt="" style="width:20; height:20;">  
+                </div>
+              <div class="github-link"> 
+                <a href="https://www.youtube.com/@Bedimcode">utube link with logo</a>
+               </div>
+            </div>
+            <div class="info">
+                <p class="name">Marlon</p>
+                <p>bedimcode</p>
+                <p class="bio">Hello Its me in the bio</p>
+                <div class="utubeLink">
+                    <a href="https://www.youtube.com/@Bedimcode">utube link with logo</a><br/><br/>
+                
+                    <a href="https://www.buymeacoffee.com/bedimcode" class="website">website logo attached</a>
+                  </div>
+                
+            </div>
+        </div>
+          
+     </div>
+       
+        <div class="repo-heading"><p>Projects Repositories<hr/></p></div>
+        <!-- <div class="search-bar">
+            <input type="text" id="search-input">
+            <a class="logo">search-logo</a>
+        </div> -->
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search repositories...">
+            <button  >Search</button>
+        </div>
+        
+        <div>
+            <label for="repoPerPage">Repositories per page:</label>
+            <select id="repoPerPage" >
+                <option value="10">10</option>
+                <option value="20">15</option>
+                <option value="50">30</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+            <div id="loader" class="loader"></div>
+           
+       
+    
+        <div id="container">
+        </div>
+        <div id="pagination-container">
+            <div id="pagination"></div>
+        </div>
+    </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>
