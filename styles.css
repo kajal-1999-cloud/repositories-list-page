@@ -32,7 +32,7 @@ body {
     justify-content: center; 
     align-items: center;
     gap: 40px;
-    margin: 20px;
+    margin: 29px;
     color: rgb(187, 84, 37); 
     border-radius: 5px;
 }
@@ -49,12 +49,24 @@ body {
 
 }
 
-#pagination{
+#pagination {
+    margin:25px;
      display:flex;
+     gap:20px;
+border: 1px solid rgb(231, 225, 225);
      justify-content: center;
-     
+     align-items: center;
+     border-radius: 40px;
+     background-color: rgb(233, 233, 233);    
 }
+#pagination button{
+    padding: 8px;
+    border: none;
+     border-radius: 40px;
+     text-decoration: none;
+     background-color: rgb(196, 214, 221);
 
+}
 a{
     text-decoration: none;
     color:rgb(68, 60, 189);
@@ -144,6 +156,22 @@ a{
 
 };
 
+select#repoPerPage {
+     
+}
+select#repoPerPage {
+    padding: 10px; 
+    font-size: 16px; 
+    border: 1px solid #615e5e; 
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333; 
+      padding: 10px;
+       background-color: #aebcc7;
+       /* outline: none;  */
+       cursor: pointer;
+}
+
 
 .loader {
     border: 8px solid #f3f3f3;
@@ -155,7 +183,7 @@ a{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: 145px;
+    margin-top: 245px;
     margin-left: -25px;
     display: none;
   }
