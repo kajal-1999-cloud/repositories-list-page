@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function fetchRepositories() {
     showLoader(); 
-    fetch(`https://api.github.com/users/${username}/repos`)
+    fetch(`https://api.ithub.com/users/${username}/repos`)
       .then(response => response.json())
       .then(repositories => {
         repositoriesData = repositories;
