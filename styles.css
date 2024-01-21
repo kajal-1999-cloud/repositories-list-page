@@ -2,7 +2,29 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    background-color: rgb(206, 194, 183);
+    /* box-shadow: ; */
 }
+
+.gradient-text  {
+    background: linear-gradient(to right, #ff8a00, #605ec2);
+     -webkit-background-clip: text;
+     color: transparent;
+            text-align: center;
+            font-size: 56px;
+}
+.repoPerPage{
+    background: linear-gradient(to right, #281d8f, #7f7fcc);
+    -webkit-background-clip: text;
+    color: transparent;
+     font-size: 29px;
+    text-align: center;
+}
+/* .repoPerPage select option{
+    padding:15px;
+    border-radius: 15px;
+    text-decoration: none;
+} */
 
 .details {
     display: flex;
@@ -11,16 +33,42 @@ body {
     align-items: center;
     gap: 40px;
     margin: 20px;
-    /* margin-left: 20px; */
+    color: rgb(187, 84, 37); 
+    border-radius: 5px;
 }
 
 .git-profile{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
-    padding: 20px;
+    padding : 5px 25px;
     margin: 20px;
+    background: linear-gradient(to right, rgb(179, 169, 169), rgb(241, 234, 234), rgb(238, 223, 223) );
+   border-radius: 25px;
+   padding: 40px;
+
+}
+
+#pagination{
+     display:flex;
+     justify-content: center;
+     
+}
+
+a{
+    text-decoration: none;
+    color:rgb(68, 60, 189);
+
+}  
+
+.git-profile a{
+  text-decoration: none;
+    color:rgb(68, 60, 189);
+  text-shadow: #083350;
+}
+.profile-photo{
+    text-align: center;
+
 }
 .profile-photo img {
     width: 120px;
@@ -33,9 +81,11 @@ body {
 }
 
 .info{
+    /* background: linear-gradient(to right, rgb(83, 82, 82), rgb(180, 175, 175), rgb(238, 223, 223) ); */
     padding: 10px;
     margin: 20px;
 }
+
 .info .div{
     padding: 5px;
 }
@@ -56,35 +106,44 @@ body {
 
 
 #container{
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
     margin-left: 70px;
     align-items: center;
+    box-shadow: 10px 24px 58px  rgba(54, 45, 185, 0.1);
 }
 
-.repo-heading{
-    font-size: 30px;
-    text-align: center;
-    margin-top: 30px;
-}
+
 .topics, .search-bar button{
     margin: 10px;
-    border-radius: 90px;
-    background-color: aquamarine;
+    border-radius: 150px;
+    background-color: rgb(212, 172, 126);
     padding: 10px
 }
 
 .search-bar button{
     margin: 10px;
     border-radius: 90px;
-    background-color: rgb(100, 178, 241);
+    background-color: rgb(175, 188, 231);
     padding:10px 20px;
 }
-.grid-container{
-
-
+.search-bar input{
+       background: linear-gradient(to right, rgb(122, 114, 107), rgb(241, 234, 234), rgb(238, 223, 223) );
+       font-size: 20px;
 }
+.grid-container{
+    box-shadow: 10px 24px 58px 38px rgba(212, 212, 66, 0.1);
+
+       background: linear-gradient(to right, rgb(150, 72, 49), rgb(206, 157, 124), rgb(207, 188, 166) );
+        border-radius: 30px;
+        color: rgb(240, 238, 238);
+        padding: 15px;
+        margin: 10px;
+
+};
+
 
 .loader {
     border: 8px solid #f3f3f3;

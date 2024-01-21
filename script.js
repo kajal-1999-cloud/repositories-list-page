@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let itemsPerPage = 10;
   let currentPage = 1;
   let repositoriesData = [];
+  let OriginalRepositoriesData = [];
   let searchTerm = null;
   let currentPageData = []; 
   const loader = document.getElementById('loader');
@@ -14,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function fetchRepositories() {
     showLoader(); 
-    fetch(`https://api.ithub.com/users/${username}/repos`)
+    fetch(`https://api.github.com/users/${username}/repos`)
       .then(response => response.json())
       .then(repositories => {
-        repositoriesData = repositories;
+        OriginalRepositoriesData = repositories;
         displayPage(currentPage);
         updatePagination();
       })
@@ -25,11 +26,26 @@ document.addEventListener('DOMContentLoaded', function () {
       .finally(() => hideLoader());
   }
 
+  
+
   function displayPage(pageNumber) {
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-     currentPageData = repositoriesData.slice(startIndex, endIndex);
 
+     if (searchTerm && searchTerm.length > 0) {
+      filteredRepo = repositoriesData.filter((repo) => repo.name.toLowerCase().startsWith(searchTerm));
+      repositoriesData = filteredRepo;
+       
+      if(filteredRepo.length === 0 ){
+        repositoriesContainer.innerHTML = '<p>No repositories Found with this Name</p>'
+        return
+      }
+      // repositoriesContainer.innerHTML = ''
+  }else{
+    repositoriesData = OriginalRepositoriesData;
+  }
+  currentPageData = repositoriesData.slice(startIndex, endIndex);
+    
  
     repositoriesContainer.innerHTML = '';
      
@@ -52,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <div>
             ${repoElement.innerHTML || 'No Topics'}
           </div>
-        </div><hr/>
+        </div>
       `;
       repositoriesContainer.appendChild(repoElement);
     });
@@ -86,20 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePagination();
   }
 
-  function searchRepositories() {
-    const searchInput = document.getElementById('search-input');
-    searchTerm = searchInput.value.toLowerCase();
-
-    currentPage = 1;
-    if (searchTerm.length > 0) {
-        filteredRepo = repositoriesData.filter((repo) => repo.name.toLowerCase().startsWith(searchTerm));
-        repositoriesData = filteredRepo;
-    }
-
-    displayPage(currentPage);
-    updatePagination();
-}
-
+ 
   function showLoader() {
     loader.style.display = 'block';
   }
@@ -108,6 +111,15 @@ document.addEventListener('DOMContentLoaded', function () {
     loader.style.display = 'none';
   }
 
+  function searchRepositories() {
+    const searchInput = document.getElementById('search-input');
+    searchTerm = searchInput.value.toLowerCase();
+
+    currentPage = 1;
+   
+    displayPage(currentPage);
+    updatePagination();
+}
 
   fetchRepositories();
 
@@ -115,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const perPageSelect = document.getElementById('repoPerPage');
   const repositoriesContainer = document.getElementById('container');
   repoPerPage.addEventListener('click', updatePerPage())
-  perPageSelect.addEventListener('change', updatePerPage); // Change 'click' to 'change'
+  perPageSelect.addEventListener('change', updatePerPage);
   const searchButton = document.getElementById('search-button');
   searchButton.addEventListener('click', searchRepositories);
 });
