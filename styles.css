@@ -32,7 +32,7 @@ body {
     justify-content: center; 
     align-items: center;
     gap: 40px;
-    color: rgb(235, 222, 216); 
+    color: rgb(112, 7, 7); 
     /* color: rgb(187, 84, 37);  */
     border-radius: 15px;
 }
@@ -76,7 +76,7 @@ a{
 
 .git-profile a{
   text-decoration: none;
-    color:rgb(68, 60, 189);
+    color:rgb(82, 82, 83);
   text-shadow: #083350;
 }
 .profile-photo{
@@ -89,10 +89,44 @@ a{
 }
 
 .github-link {
-    padding-top: 10px;
+    display:flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding-top: 16px;
     /* margin-top: 40px; */
+    /* display: flex; */
+    gap:5px;
+}
+.github-link img{
+    width: 20px;
+    height: 20px;
+    margin:3px;
+    /* padding-top:10px; */
+    border-radius: 10px;
+    gap: 5px;
+   
+
+    
 }
 
+.utubeLink,.websiteLink {
+    display:flex;
+    justify-content: flex-start;
+    /* justify-items: center; */
+    align-items: center;
+    padding-top: 16px;
+    /* margin-top: 40px; */
+    /* display: flex; */
+    gap:5px;
+}
+
+.utubeLink img, .websiteLink img{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    
+}
 .info{
     /* background: linear-gradient(to right, rgb(83, 82, 82), rgb(180, 175, 175), rgb(238, 223, 223) ); */
     padding: 10px;
@@ -119,7 +153,6 @@ a{
 
 
 #container{
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
