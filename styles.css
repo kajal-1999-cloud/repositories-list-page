@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: rgb(206, 194, 183);
-    /* box-shadow: ; */
+    background-color: rgb(229, 235, 236);
+    /* background-color: #817b80;
+    background-color: rgb(129, 123, 128); */
 }
 
 .gradient-text  {
@@ -17,24 +17,22 @@ body {
     background: linear-gradient(to right, #281d8f, #7f7fcc);
     -webkit-background-clip: text;
     color: transparent;
-     font-size: 29px;
+     margin:10px;
+     /* padding:5px; */
     text-align: center;
+    font-size: 30px;
 }
-/* .repoPerPage select option{
-    padding:15px;
-    border-radius: 15px;
-    text-decoration: none;
-} */
 
 .details {
     display: flex;
     /* flex-direction: column;  */
+    margin: 3px;
+    background-color: rgb(174, 205, 212);
     justify-content: center; 
     align-items: center;
     gap: 40px;
-    margin: 29px;
     color: rgb(187, 84, 37); 
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .git-profile{
@@ -46,6 +44,7 @@ body {
     background: linear-gradient(to right, rgb(179, 169, 169), rgb(241, 234, 234), rgb(238, 223, 223) );
    border-radius: 25px;
    padding: 40px;
+   box-shadow: 8px 10 5px rgba(175, 175, 152, 0.1);
 
 }
 
@@ -122,8 +121,10 @@ a{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    margin-left: 70px;
+    margin: 0px;
+    padding: 20px;
     align-items: center;
+    /* background-color: rgb(196, 170, 189); */
     box-shadow: 10px 24px 58px  rgba(54, 45, 185, 0.1);
 }
 
@@ -131,7 +132,7 @@ a{
 .topics, .search-bar button{
     margin: 10px;
     border-radius: 150px;
-    background-color: rgb(212, 172, 126);
+    background-color: rgb(223, 208, 162);
     padding: 10px
 }
 
@@ -148,9 +149,9 @@ a{
 .grid-container{
     box-shadow: 10px 24px 58px 38px rgba(212, 212, 66, 0.1);
 
-       background: linear-gradient(to right, rgb(150, 72, 49), rgb(206, 157, 124), rgb(207, 188, 166) );
+       background: linear-gradient(to right, rgb(216, 168, 190), rgb(176, 183, 245) );
         border-radius: 30px;
-        color: rgb(240, 238, 238);
+        color: rgb(22, 21, 21);
         padding: 15px;
         margin: 10px;
 
@@ -160,15 +161,14 @@ select#repoPerPage {
      
 }
 select#repoPerPage {
+    margin:10px;
     padding: 10px; 
     font-size: 16px; 
     border: 1px solid #615e5e; 
     border-radius: 5px;
     background-color: #fff;
     color: #333; 
-      padding: 10px;
-       background-color: #aebcc7;
-       /* outline: none;  */
+    background-color: #aebcc7;
        cursor: pointer;
 }
 

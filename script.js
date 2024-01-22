@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
- 
-
   
   const username = 'bedimcode';
   let itemsPerPage = 10;
@@ -10,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let OriginalRepositoriesData = [];
   let searchTerm = null;
   let currentPageData = []; 
+  let filteredRepo=[];
+  let inputResults = ''
   const loader = document.getElementById('loader');
 
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePagination();
       })
       .catch((error) => console.log('Error fetching repositories:', error))
-      .finally(() => hideLoader());
+      // .finally(() => hideLoader());
   }
 
   
@@ -31,19 +31,24 @@ document.addEventListener('DOMContentLoaded', function () {
   function displayPage(pageNumber) {
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
+    console.log('Hi' , inputResults)
 
-     if (searchTerm && searchTerm.length > 0) {
-      filteredRepo = repositoriesData.filter((repo) => repo.name.toLowerCase().startsWith(searchTerm));
-      repositoriesData = filteredRepo;
-       
-      if(filteredRepo.length === 0 ){
-        repositoriesContainer.innerHTML = '<p>No repositories Found with this Name</p>'
-        return
+    if ( inputResults.length > 0) {
+           
+          filteredRepo = repositoriesData.filter((repo) => repo.name.toLowerCase().startsWith(inputResults));
+          repositoriesData = filteredRepo;
+          repositoriesContainer.innerHTML = 'Please Wait';
+          //  console.log('Hi' , inputResults)
+          if(filteredRepo.length === 0 ){
+            repositoriesContainer.innerHTML = '<p>No repositories Found with this Name</p>'
+            return
+          }
+          // repositoriesContainer.innerHTML = ''
+      }else{
+        repositoriesData = OriginalRepositoriesData;
       }
-      // repositoriesContainer.innerHTML = ''
-  }else{
-    repositoriesData = OriginalRepositoriesData;
-  }
+
+    hideLoader()
   currentPageData = repositoriesData.slice(startIndex, endIndex);
     
  
@@ -111,12 +116,22 @@ document.addEventListener('DOMContentLoaded', function () {
     loader.style.display = 'none';
   }
 
+  function inputValue(e) {
+     inputResults = e.target.value;
+    // const searchInput = document.getElementById('search-input');
+    // searchTerm = searchInput.value.toLowerCase();
+    currentPage = 1;
+   
+    displayPage(currentPage);
+    updatePagination();
+}
+
+
   function searchRepositories() {
     const searchInput = document.getElementById('search-input');
     searchTerm = searchInput.value.toLowerCase();
 
     currentPage = 1;
-   
     displayPage(currentPage);
     updatePagination();
 }
@@ -129,5 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
   repoPerPage.addEventListener('click', updatePerPage())
   perPageSelect.addEventListener('change', updatePerPage);
   const searchButton = document.getElementById('search-button');
+  const searchInput = document.getElementById('search-input');
   searchButton.addEventListener('click', searchRepositories);
+  searchInput.addEventListener('input', inputValue);
+   
+  // 
 });
