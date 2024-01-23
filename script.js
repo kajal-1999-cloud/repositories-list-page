@@ -107,11 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePagination();
   }
 
- 
+//  loader
   function showLoader() {
     loader.style.display = 'block';
   }
-
   function hideLoader() {
     loader.style.display = 'none';
   }
