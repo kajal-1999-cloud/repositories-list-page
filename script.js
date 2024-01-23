@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let inputResults = ''
   const loader = document.getElementById('loader');
 
-
+//  fetching Repositories
   function fetchRepositories() {
     showLoader(); 
     fetch(`https://api.github.com/users/${username}/repos`)
@@ -23,11 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePagination();
       })
       .catch((error) => console.log('Error fetching repositories:', error))
-      // .finally(() => hideLoader());
   }
 
   
-
+//  Display No. of  Repo on page 
   function displayPage(pageNumber) {
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
             repositoriesContainer.innerHTML = '<p>No repositories Found with this Name</p>'
             return
           }
-          // repositoriesContainer.innerHTML = ''
       }else{
         repositoriesData = OriginalRepositoriesData;
       }
@@ -79,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // update pages 
   function updatePagination() {
     const totalPages = Math.ceil(repositoriesData.length / itemsPerPage);
     const paginationList = document.getElementById('pagination');
@@ -98,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  
   function updatePerPage() {
     itemsPerPage = parseInt(perPageSelect.value, 10);
     currentPage = 1;
@@ -116,19 +116,16 @@ document.addEventListener('DOMContentLoaded', function () {
     loader.style.display = 'none';
   }
 
+  // update Repositories as input value changes
   function inputValue(e) {
      inputResults = e.target.value;
-    // const searchInput = document.getElementById('search-input');
-    // searchTerm = searchInput.value.toLowerCase();
-    currentPage = 1;
-   
+     currentPage = 1;
     displayPage(currentPage);
     updatePagination();
 }
 
-
+//  search functionality implemented
   function searchRepositories() {
-    const searchInput = document.getElementById('search-input');
     searchTerm = searchInput.value.toLowerCase();
 
     currentPage = 1;
@@ -148,5 +145,4 @@ document.addEventListener('DOMContentLoaded', function () {
   searchButton.addEventListener('click', searchRepositories);
   searchInput.addEventListener('input', inputValue);
    
-  // 
 });

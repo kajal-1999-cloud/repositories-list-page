@@ -10,12 +10,15 @@ body {
     background: linear-gradient(to right, #ff8a00, #605ec2);
      -webkit-background-clip: text;
      color: transparent;
+     margin: 20px;
             text-align: center;
-            font-size: 56px;
+            font-size: 38px;
+    font-weight: 600;
+
 }
 .repoPerPage{
     background: linear-gradient(to right, #281d8f, #7f7fcc);
-    -webkit-background-clip: text;
+    --webkit-background-clip: text;
     color: transparent;
      margin:10px;
      /* padding:5px; */
@@ -34,7 +37,7 @@ body {
     gap: 40px;
     font-size: 16px;
     font-weight:4000 ;
-    color: rgb(112, 7, 7); 
+    color: rgb(238, 221, 221); 
     /* color: rgb(187, 84, 37);  */
     border-radius: 15px;
 }
